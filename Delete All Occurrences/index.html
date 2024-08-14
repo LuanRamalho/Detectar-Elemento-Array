@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excluir todas as ocorrências</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p id="del-value"></p>
+      <p id="before-del"></p>
+      <p id="after-del"></p>
+    </div>
+    <!-- Script -->
+    <script>
+      //References to display array
+      let delValue = document.getElementById("del-value");
+      let arrBefore = document.getElementById("before-del");
+      let arrAfter = document.getElementById("after-del");
+
+      //Original Array
+      let arr = ["a", "b", "c", "d", "b"];
+      arrBefore.innerHTML = `<span>Antes da exclusão:</span> [${arr}]`;
+
+      //Value To Delete
+      let valToDel = "b";
+      delValue.innerHTML = `<span>Valor para deletar: </span> ${valToDel}`;
+
+      //Using filter to filter out values that are not equal to the value to be deleted
+      arr = arr.filter((val) => val != valToDel);
+      arrAfter.innerHTML = `<span>Depois da exclusão: </span> [${arr}]`;
+    </script>
+  </body>
+</html>
