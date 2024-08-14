@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>deletando primeiro elemento</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p id="del-value"></p>
+      <p id="before-del"></p>
+      <p id="after-del"></p>
+    </div>
+    <!-- Script -->
+    <script>
+      //References To Display Array
+      let delValue = document.getElementById("del-value");
+      let arrBefore = document.getElementById("before-del");
+      let arrAfter = document.getElementById("after-del");
+
+      //Original Array
+      let arr = ["a", "b", "c", "d", "b"];
+      arrBefore.innerHTML = `<span>Antes da exclusão: </span> [${arr}]`;
+
+      //Value to del
+      let valToDel = "b";
+      delValue.innerHTML = `<span>Valor para deletar: </span> ${valToDel}`;
+
+      //indexOf(value) returns the first occurence of the value. If not found it return -1
+      let indOfVal = arr.indexOf(valToDel);
+
+      console.log(indOfVal);
+
+      //If the value to delete is present in array use splice
+      //Splice overwrites the original array
+      if (indOfVal != -1) {
+        /* Syntax used here:
+         Splice(indexOfItemToDel,NumberOfItemsToDel)*/
+        arr.splice(indOfVal, 1);
+      }
+      arrAfter.innerHTML = `<span>Depois da exclusão: </span>[${arr}]`;
+    </script>
+  </body>
+</html>
